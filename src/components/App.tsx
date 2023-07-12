@@ -1,13 +1,19 @@
-import { MyComponent } from "./MyComponent";
+// import { MyComponent } from "./MyComponent";
 import "./App.css";
-import { greet } from "../greet";
+import { PairMatchingApp } from "./PairMatchingApp";
 
 function App() {
     return (
         <div className="App">
-            <MyComponent />
+            <div className="heading-container">
+                <h1>Pair-Matching Game</h1>
+            </div>
+            <div>
+                <PairMatchingApp />
+            </div>
 
-            {greet("World")}
+
+
         </div>
     );
 }
