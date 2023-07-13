@@ -30,9 +30,9 @@ export function PairCard({url, showing, id, matched, dispatchAction}: Image): JS
 
     if (matched || showing) {
         return (
-            <button onClick={() => handleShowCard(id)}>{url}</button>
+            <button key={id} onClick={() => handleShowCard(id)}>{url}</button>
     )} else {
         return(
-            <button onClick={() => handleShowCard(id)}>hmm</button>
+            <button key={id} onClick={() => handleShowCard(id)}>hmm</button>
     )}
 }

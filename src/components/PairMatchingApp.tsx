@@ -14,6 +14,7 @@ interface Action {
     id: number;
 }
 
+
 export function PairMatchingApp(): JSX.Element {
 
     const cardTextArray: string[] = ['😅', '💩', '✊🏼', '🪖', '🐸', '🥧', '🥜', '🍿']
@@ -23,6 +24,7 @@ export function PairMatchingApp(): JSX.Element {
             showing: false,
             id: cardTextArray.indexOf(emoji),
             matched: false,
+            dispatchAction: (action: Action) => cardDispatch(action),
         }
     })
 
@@ -38,7 +40,7 @@ export function PairMatchingApp(): JSX.Element {
             showing: false,
             id: imageAction.id,
             matched: false,
-            dispatchAction: (action: Action) => cardDispatch(action)
+            dispatchAction: (action: Action) => cardDispatch(action),
         }
 
         switch (imageAction.type) {
@@ -52,11 +54,10 @@ export function PairMatchingApp(): JSX.Element {
         }
     }
 
-
-
-
     return (
-        cards.map(PairCard)
+        <>
+            {cards.map(PairCard)}
+        </>
     )
 
 
