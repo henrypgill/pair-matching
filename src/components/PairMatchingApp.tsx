@@ -49,6 +49,16 @@ export function PairMatchingApp(): JSX.Element {
         cardDispatch(action);
     }
 
+    function handleReset() {
+        const action: Action = {
+            type: "reset",
+            id: -1,
+            url: "reset",
+        };
+        waitingStatus = false;
+        cardDispatch(action);
+    }
+
     function cardReducer(state: Image[], action: Action): Image[] {
         const activeCards = state.filter((image: Image) =>
             image.showing ? image : null
@@ -96,5 +106,10 @@ export function PairMatchingApp(): JSX.Element {
         }
     }
 
-    return <div className="card-container">{cards.map(PairCard)}</div>;
+    return(
+        <div className="card-container">
+            {cards.map(PairCard)}
+            <button onClick={handleReset}>Reset Game</button>
+        </div>
+    );
 }
