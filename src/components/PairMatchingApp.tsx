@@ -97,10 +97,10 @@ export function PairMatchingApp(): JSX.Element {
             case "newGame":
                 return getInitialImages();
             case "reset":
+                console.log('here1')
                 return state.map((image) => {
                     return {
                         ...image,
-                        matched: false,
                         showing: false,
                         waiting: waitingStatus,
                     };
