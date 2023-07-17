@@ -106,7 +106,7 @@ export function PairMatchingApp(): JSX.Element {
         }
     }
 
-    return(
+    return (
         <div className="card-container">
             {cards.map(PairCard)}
             <button onClick={handleReset}>Reset Game</button>
