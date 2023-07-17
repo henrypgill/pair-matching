@@ -5,34 +5,30 @@ interface Image {
     showing: boolean;
     id: number;
     matched: boolean;
-    dispatchAction(action: Action): void;
+    cardDispatch(action: Action): void;
+    waiting: boolean;
 }
 
 interface Action {
     type: string;
     id: number;
+    url: string;
 }
 
-export function PairCard({url, showing, id, matched, dispatchAction}: Image): JSX.Element {
+export function PairCard({url, showing, id, matched, cardDispatch, waiting}: Image): JSX.Element {
 
-    const backOfCardURL = ""
 
-    function handleShowCard(cardID: number) {
+
+    function handleShowCard() {
+        if (!showing && !waiting){
         const action: Action = {
-            type: 'showCard',
-            id: cardID,
+            type: 'show',
+            id: id,
+            url: url,
           };
-        dispatchAction(action)
+          cardDispatch(action)}
     }
-
-
-    // <img src={showing ? url : backOfCardURL} className={`image-card`}></img>
-
-    if (matched || showing) {
         return (
-            <button key={id} onClick={() => handleShowCard(id)}>{url}</button>
-    )} else {
-        return(
-            <button key={id} onClick={() => handleShowCard(id)}>hmm</button>
-    )}
+            <button key={id} onClick={handleShowCard} className={`card ${matched ? "matched-card" : ""} ${waiting}`}>{showing ? url : "hmm"}</button>
+        )
 }
