@@ -37,7 +37,7 @@ export function PairCard({
             onClick={handleShowCard}
             className={`card ${matched ? "matched-card" : ""} ${waiting}`}
         >
-            {showing ? url : "hmm"}
+            {showing || matched ? url : "hmm"}
         </button>
     );
 }
