@@ -11,9 +11,6 @@ function App() {
             <div className="content">
                 <PairMatchingApp />
             </div>
-
-
-
         </div>
     );
 }

@@ -1,5 +1,3 @@
-
-
 interface Image {
     url: string;
     showing: boolean;
@@ -15,20 +13,31 @@ interface Action {
     url: string;
 }
 
-export function PairCard({url, showing, id, matched, cardDispatch, waiting}: Image): JSX.Element {
-
-
-
+export function PairCard({
+    url,
+    showing,
+    id,
+    matched,
+    cardDispatch,
+    waiting,
+}: Image): JSX.Element {
     function handleShowCard() {
-        if (!showing && !waiting){
-        const action: Action = {
-            type: 'show',
-            id: id,
-            url: url,
-          };
-          cardDispatch(action)}
+        if (!showing && !waiting) {
+            const action: Action = {
+                type: "show",
+                id: id,
+                url: url,
+            };
+            cardDispatch(action);
+        }
     }
-        return (
-            <button key={id} onClick={handleShowCard} className={`card ${matched ? "matched-card" : ""} ${waiting}`}>{showing ? url : "hmm"}</button>
-        )
+    return (
+        <button
+            key={id}
+            onClick={handleShowCard}
+            className={`card ${matched ? "matched-card" : ""} ${waiting}`}
+        >
+            {showing ? url : "hmm"}
+        </button>
+    );
 }
