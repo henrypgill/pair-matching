@@ -8,12 +8,9 @@ function App() {
             <div className="heading-container">
                 <h1>Pair-Matching Game</h1>
             </div>
-            <div>
+            <div className="content">
                 <PairMatchingApp />
             </div>
-
-
-
         </div>
     );
 }
